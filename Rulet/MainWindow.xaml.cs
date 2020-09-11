@@ -25,17 +25,15 @@ namespace Rulet
     /// </summary>
     public partial class MainWindow : Window
     {
-
-
         private Storyboard sb;
         private DispatcherTimer timer1;
         private DispatcherTimer timer2;
         private DispatcherTimer timer3;
-        private int cheap;
-        private bool selectCheap1;
-        private bool selectCheap2;
-        private bool selectCheap3;
-        private bool selectCheap4;
+        private int chip;
+        private bool selectchip1;
+        private bool selectchip2;
+        private bool selectchip3;
+        private bool selectchip4;
         private int sum;
         private int sum1, sum2,sum3,sum4,sum5, sum6, sum7, sum8, sum9, sum10, sum11, sum12, sum13, sum14, sum15;
         private int sum16, sum17, sum18, sum19, sum20, sum21, sum22, sum23, sum24, sum25, sum26, sum27, sum28, sum29, sum30;
@@ -54,13 +52,12 @@ namespace Rulet
             
 
             InitializeComponent();
-
-            Loaded+= new RoutedEventHandler(pauseWheel);
-            cheap = 0;
-            selectCheap1 = false;
-            selectCheap2 = false;
-            selectCheap3 = false;
-            selectCheap4 = false;
+            Loaded += new RoutedEventHandler(pauseWheel);
+            chip = 0;
+            selectchip1 = false;
+            selectchip2 = false;
+            selectchip3 = false;
+            selectchip4 = false;
             sum = 0;
             sum1 = 0;
             sum2 = 0; sum3 = 0; sum4 = 0; sum5 = 0; sum6 = 0;sum7 = 0; sum8 = 0;sum9 = 0; sum10 = 0;sum11 = 0; sum12 = 0; sum13 = 0;
@@ -103,7 +100,7 @@ namespace Rulet
         public void pauseWheel(object sender, RoutedEventArgs e)
         {
             sb = this.FindResource("Storyboard1") as Storyboard;
-            
+           
             sb.Begin();
             sb.Stop();
         }
@@ -312,17 +309,17 @@ namespace Rulet
 
         private void Picture1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            cheap = 1;
-            selectCheap1 = true;
-            selectCheap2 = false;
-            selectCheap3 = false;
-            selectCheap4 = false;
+            chip = 1;
+            selectchip1 = true;
+            selectchip2 = false;
+            selectchip3 = false;
+            selectchip4 = false;
 
             Canvas canvas = sender as Canvas;
             Image img = sender as Image;
             
             Border bdr = new Border();
-            if (selectCheap1)
+            if (selectchip1)
             {
                 bdr.Visibility = Visibility.Visible;
                 c1.Visibility = Visibility.Visible;
@@ -346,16 +343,16 @@ namespace Rulet
 
         private void Picture2_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
-            cheap = 5;
-            selectCheap1 = false;
-            selectCheap2 = true;
-            selectCheap3 = false;
-            selectCheap4 = false;
+            chip = 5;
+            selectchip1 = false;
+            selectchip2 = true;
+            selectchip3 = false;
+            selectchip4 = false;
             Canvas canvas = sender as Canvas;
             Image img = sender as Image;
 
             Border bdr = new Border();
-            if (selectCheap2)
+            if (selectchip2)
             {
                 bdr.Visibility = Visibility.Visible;
                 c2.Visibility = Visibility.Visible;
@@ -380,16 +377,16 @@ namespace Rulet
 
         private void Picture3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            cheap = 25;
-            selectCheap1 = false;
-            selectCheap2 = false;
-            selectCheap3 = true;
-            selectCheap4 = false;
+            chip = 25;
+            selectchip1 = false;
+            selectchip2 = false;
+            selectchip3 = true;
+            selectchip4 = false;
             Canvas canvas = sender as Canvas;
             Image img = sender as Image;
 
             Border bdr = new Border();
-            if (selectCheap3)
+            if (selectchip3)
             {
                 bdr.Visibility = Visibility.Visible;
                 c3.Visibility = Visibility.Visible;
@@ -413,17 +410,17 @@ namespace Rulet
 
         private void Picture4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            cheap = 100;
-            selectCheap1 = false;
-            selectCheap2 = false;
-            selectCheap3 = false;
-            selectCheap4 = true;
+            chip = 100;
+            selectchip1 = false;
+            selectchip2 = false;
+            selectchip3 = false;
+            selectchip4 = true;
 
             Canvas canvas = sender as Canvas;
             Image img = sender as Image;
 
             Border bdr = new Border();
-            if (selectCheap4)
+            if (selectchip4)
             {
                 bdr.Visibility = Visibility.Visible;
                 c4.Visibility = Visibility.Visible;
@@ -450,10 +447,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum3 += cheap;
+                sum3 += chip;
                 labelRed.Content = sum3.ToString();
-                betAmount += cheap;
-                totalAmount -= cheap;
+                betAmount += chip;
+                totalAmount -= chip;
                 
             }
             else
@@ -467,10 +464,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum4 += cheap;
+                sum4 += chip;
                 labelBlack.Content = sum4.ToString();
-                betAmount += cheap;
-                totalAmount -= cheap;
+                betAmount += chip;
+                totalAmount -= chip;
                 
             }
             else
@@ -484,10 +481,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-            sum5 += cheap;
+            sum5 += chip;
             labelOdd.Content = sum5.ToString();
-            betAmount += cheap;
-            totalAmount -= cheap;
+            betAmount += chip;
+            totalAmount -= chip;
             
             }
             else
@@ -504,11 +501,11 @@ namespace Rulet
 
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum += cheap;
+                sum += chip;
 
                 label0.Content = sum.ToString();
-                betAmount += cheap;
-                totalAmount -= cheap;
+                betAmount += chip;
+                totalAmount -= chip;
                 
             }
             else
@@ -523,10 +520,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-            sum1 += cheap;
+            sum1 += chip;
             label1to18.Content = sum1.ToString();
-            betAmount += cheap;
-            totalAmount -= cheap;
+            betAmount += chip;
+            totalAmount -= chip;
             
             }
             else
@@ -543,10 +540,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-            sum2 += cheap;
+            sum2 += chip;
             labelEven.Content = sum2.ToString();
-            betAmount += cheap;
-            totalAmount -= cheap;
+            betAmount += chip;
+            totalAmount -= chip;
             }
             else
             {
@@ -559,10 +556,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum16 += cheap;
+                sum16 += chip;
             labelN16.Content = sum16.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -575,10 +572,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum17 += cheap;
+                sum17 += chip;
             labelN19.Content = sum17.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -592,10 +589,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum18 += cheap;
+                sum18 += chip;
             labelN22.Content = sum18.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -607,10 +604,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum19 += cheap;
+                sum19 += chip;
             labelN25.Content = sum19.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -622,10 +619,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum20 += cheap;
+                sum20 += chip;
             labelN28.Content = sum20.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -637,10 +634,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum21 += cheap;
+                sum21 += chip;
             labelN31.Content = sum21.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -653,10 +650,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum22 += cheap;
+                sum22 += chip;
             labelN34.Content = sum22.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -668,10 +665,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum23 += cheap;
+                sum23 += chip;
             labelN2.Content = sum23.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
 
             }
             else
@@ -684,10 +681,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum24 += cheap;
+                sum24 += chip;
             labelN5.Content = sum24.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -699,10 +696,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum25 += cheap;
+                sum25 += chip;
             labelN8.Content = sum25.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -714,10 +711,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum26 += cheap;
+                sum26 += chip;
             labelN11.Content = sum26.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -730,10 +727,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum27 += cheap;
+                sum27 += chip;
             labelN14.Content = sum27.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -746,10 +743,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum28 += cheap;
+                sum28 += chip;
             labelN17.Content = sum28.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -762,10 +759,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum29 += cheap;
+                sum29 += chip;
             labelN20.Content = sum29.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -778,10 +775,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum30 += cheap;
+                sum30 += chip;
             labelN23.Content = sum30.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -794,10 +791,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum31 += cheap;
+                sum31 += chip;
             labelN26.Content = sum31.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -810,10 +807,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum32 += cheap;
+                sum32 += chip;
             labelN29.Content = sum32.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -826,10 +823,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum33 += cheap;
+                sum33 += chip;
             labelN32.Content = sum33.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -842,10 +839,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum34 += cheap;
+                sum34 += chip;
             labelN35.Content = sum34.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -858,10 +855,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum35 += cheap;
+                sum35 += chip;
             labelN3.Content = sum35.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -874,10 +871,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum36 += cheap;
+                sum36 += chip;
             labelN6.Content = sum36.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -891,10 +888,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum37 += cheap;
+                sum37 += chip;
             labelN9.Content = sum37.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -907,10 +904,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum38 += cheap;
+                sum38 += chip;
             labelN12.Content = sum38.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -923,10 +920,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum39 += cheap;
+                sum39 += chip;
             labelN15.Content = sum39.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -939,10 +936,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum40 += cheap;
+                sum40 += chip;
             labelN18.Content = sum40.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -955,10 +952,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum41 += cheap;
+                sum41 += chip;
             labelN21.Content = sum41.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -971,10 +968,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum42 += cheap;
+                sum42 += chip;
             labelN24.Content = sum42.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -987,10 +984,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum43 += cheap;
+                sum43 += chip;
             labelN27.Content = sum43.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -1003,10 +1000,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum44 += cheap;
+                sum44 += chip;
             labelN30.Content = sum44.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -1019,10 +1016,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum45 += cheap;
+                sum45 += chip;
             labelN33.Content = sum45.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -1035,10 +1032,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum46 += cheap;
+                sum46 += chip;
             labelN36.Content = sum46.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -1051,10 +1048,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum6 += cheap;
+                sum6 += chip;
             label19to36.Content = sum6.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -1067,10 +1064,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum7 += cheap;
+                sum7 += chip;
             label1st12.Content = sum7.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -1084,10 +1081,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum8 += cheap;
+                sum8 += chip;
             label2nd12.Content = sum8.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -1100,10 +1097,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum9 += cheap;
+                sum9 += chip;
             label3rd12.Content = sum9.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -1116,10 +1113,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum10 += cheap;
+                sum10 += chip;
             label2to1.Content = sum10.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -1133,10 +1130,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum11 += cheap;
+                sum11 += chip;
             labelN1.Content = sum11.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -1149,10 +1146,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum12 += cheap;
+                sum12 += chip;
             labelN4.Content = sum12.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -1165,10 +1162,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum13 += cheap;
+                sum13 += chip;
             labelN7.Content = sum13.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -1181,10 +1178,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount > 0)
             {
-                sum14 += cheap;
+                sum14 += chip;
             labelN10.Content = sum14.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
@@ -1198,10 +1195,10 @@ namespace Rulet
         {
             if (betAmount < totalAmount || totalAmount>0)
             {
-                sum15 += cheap;
+                sum15 += chip;
             labelN13.Content = sum15.ToString();
-            betAmount += cheap;
-                totalAmount -= cheap;
+            betAmount += chip;
+                totalAmount -= chip;
             }
             else
             {
