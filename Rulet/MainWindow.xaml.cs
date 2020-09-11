@@ -45,11 +45,9 @@ namespace Rulet
         private int totalAmount;
         private int betAmount;
         private int winAmount;
-        private int clearCounter;
-        private int spinCounter;
         private SoundPlayer player;
         private SoundPlayer player1;
-        private bool clickClear;
+        
         public MainWindow()
         {
 
@@ -69,16 +67,16 @@ namespace Rulet
             sum14 = 0;sum15 = 0; sum16 = 0; sum17 = 0; sum18 = 0;sum19 = 0; sum20 = 0;sum21 = 0;sum22 = 0;sum23 = 0;sum24 = 0;sum25 =0;
             sum26 = 0;sum27 = 0;sum28 = 0;sum29 = 0;sum30 = 0; sum31 = 0; sum32 = 0; sum33 = 0; sum34 = 0; sum35 = 0;sum36 = 0;
             sum37 = 0;sum38 = 0;sum39 = 0;sum40 = 0;sum41 = 0;sum42 = 0;sum43 = 0;sum44 = 0;sum45 = 0;sum46 = 0;
-            clearCounter = 0;
-            spinCounter = 0;
+           
             counter = 0;
             drawnNumber = 0;
-            clickClear = false;
+            
             totalAmount = 10000;
             betAmount = 0;
             winAmount = 0;
             setCash();
             BetCash();
+            ball.Visibility = Visibility.Hidden;
         }
 
         public void setCash()
@@ -250,7 +248,7 @@ namespace Rulet
             sb.Pause();
             timer2 = new DispatcherTimer();
             timer2.Tick += timer2_tick;
-            timer2.Interval = TimeSpan.FromSeconds(3);
+            timer2.Interval = TimeSpan.FromSeconds(4);
             timer2.Start();
             timer1.Stop();
             if (counter == 0)
@@ -280,6 +278,7 @@ namespace Rulet
         
         public void timer2_tick(object sender, EventArgs e)
         {
+            ball.Visibility = Visibility.Hidden;
             sb.Begin();
             sb.Stop();
             sb.Seek(TimeSpan.Zero);
@@ -289,36 +288,25 @@ namespace Rulet
         
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            ball.Visibility = Visibility.Visible;
             StopWheel();
             timer3 = new DispatcherTimer();
             timer3.Tick += timer3_tick;
-            timer3.Interval = TimeSpan.FromSeconds(15);
+            timer3.Interval = TimeSpan.FromSeconds(16);
             timer3.Start();
             disableAll();
             player = new SoundPlayer(Rulet.Sounds.Resource1.no_more_bets);
             player.Play();
-            
-            winAmount = 0;
-            winningAmount.Content = "";
-
-            if (clickClear)
-            {
-                clickClear = false;
-            }
-            else
-            {
-                totalAmount -= betAmount;
-                labelCash.Content = totalAmount.ToString();
-            }
-
+          
         }
         
 
         public void timer3_tick(object sender, EventArgs e)
         {
             timer3.Stop();
+            ClearAllBet();
             enableAll();
+            
         }
 
 
@@ -598,6 +586,8 @@ namespace Rulet
             }
             BetCash();
         }
+
+
         private void LabelN22_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (betAmount < totalAmount || totalAmount > 0)
@@ -1421,11 +1411,11 @@ namespace Rulet
             labelCash.Content = totalAmount.ToString();
             
         }
-        private void ClearAllBet(object sender, RoutedEventArgs e)
+        private void ClearAllBet()
         {
             betAmount = 0;
             winAmount = 0;
-            clickClear = true;
+            
             betCash.Content = "";
             winningAmount.Content = "";
             label0.Content = "";
@@ -1482,13 +1472,13 @@ namespace Rulet
             sum14 = 0; sum15 = 0; sum16 = 0; sum17 = 0; sum18 = 0; sum19 = 0; sum20 = 0; sum21 = 0; sum22 = 0; sum23 = 0; sum24 = 0; sum25 = 0;
             sum26 = 0; sum27 = 0; sum28 = 0; sum29 = 0; sum30 = 0; sum31 = 0; sum32 = 0; sum33 = 0; sum34 = 0; sum35 = 0; sum36 = 0;
             sum37 = 0; sum38 = 0; sum39 = 0; sum40 = 0; sum41 = 0; sum42 = 0; sum43 = 0; sum44 = 0; sum45 = 0; sum46 = 0;
-            clearCounter++;
+            
         }
 
         public void disableAll()
         {
             spinWheel.IsEnabled = false;
-            clearBet.IsEnabled = false;
+            butonClear.IsEnabled = false;
             picture1.IsEnabled = false;
             picture2.IsEnabled = false;
             picture3.IsEnabled = false;
@@ -1545,7 +1535,7 @@ namespace Rulet
         public void enableAll()
         {
             spinWheel.IsEnabled = true;
-            clearBet.IsEnabled = true;
+            butonClear.IsEnabled = true;
             picture1.IsEnabled = true;
             picture2.IsEnabled = true;
             picture3.IsEnabled = true;
@@ -1599,6 +1589,74 @@ namespace Rulet
             label19to36.IsEnabled = true;
             label1st12.IsEnabled = true;
         }
+
+        private void click_clearBet(object sender, RoutedEventArgs e)
+        {
+            totalAmount += betAmount;
+            betAmount = 0;
+            winAmount = 0;
+
+            betCash.Content = "";
+            labelCash.Content = totalAmount.ToString();
+            winningAmount.Content = "";
+            label0.Content = "";
+            labelN3.Content = "";
+            labelN6.Content = "";
+            labelN9.Content = "";
+            labelN12.Content = "";
+            labelN15.Content = "";
+            labelN18.Content = "";
+            labelN21.Content = "";
+            labelN24.Content = "";
+            labelN27.Content = "";
+            labelN30.Content = "";
+            labelN33.Content = "";
+            labelN36.Content = "";
+            label2to1.Content = "";
+            labelN2.Content = "";
+            labelN5.Content = "";
+            labelN8.Content = "";
+            labelN11.Content = "";
+            labelN14.Content = "";
+            labelN17.Content = "";
+            labelN20.Content = "";
+            labelN23.Content = "";
+            labelN26.Content = "";
+            labelN29.Content = "";
+            labelN32.Content = "";
+            labelN35.Content = "";
+            labelN1.Content = "";
+            labelN4.Content = "";
+            labelN7.Content = "";
+            labelN10.Content = "";
+            labelN13.Content = "";
+            labelN16.Content = "";
+            labelN19.Content = "";
+            labelN22.Content = "";
+            labelN25.Content = "";
+            labelN28.Content = "";
+            labelN31.Content = "";
+            labelN34.Content = "";
+            labelN34.Content = "";
+            label2nd12.Content = "";
+            label3rd12.Content = "";
+            label1to18.Content = "";
+            labelEven.Content = "";
+            labelRed.Content = "";
+            labelBlack.Content = "";
+            labelOdd.Content = "";
+            label19to36.Content = "";
+            label1st12.Content = "";
+            sum = 0;
+            sum1 = 0;
+            sum2 = 0; sum3 = 0; sum4 = 0; sum5 = 0; sum6 = 0; sum7 = 0; sum8 = 0; sum9 = 0; sum10 = 0; sum11 = 0; sum12 = 0; sum13 = 0;
+            sum14 = 0; sum15 = 0; sum16 = 0; sum17 = 0; sum18 = 0; sum19 = 0; sum20 = 0; sum21 = 0; sum22 = 0; sum23 = 0; sum24 = 0; sum25 = 0;
+            sum26 = 0; sum27 = 0; sum28 = 0; sum29 = 0; sum30 = 0; sum31 = 0; sum32 = 0; sum33 = 0; sum34 = 0; sum35 = 0; sum36 = 0;
+            sum37 = 0; sum38 = 0; sum39 = 0; sum40 = 0; sum41 = 0; sum42 = 0; sum43 = 0; sum44 = 0; sum45 = 0; sum46 = 0;
+        }
+
+
+
     }
 
 }

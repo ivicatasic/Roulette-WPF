@@ -79,8 +79,8 @@
                      RenderTransformOrigin="0.667,0.074" 
                      HorizontalAlignment="Center"
                      VerticalAlignment="Top"
-                     Height="22" 
-                     Width="20" Margin="285,50,331,0">
+                     Height="18" 
+                     Width="18" Margin="277,52,341,0">
 
             </Ellipse>
             <Label x:Name="labelNumber" Content="DRAWN NUMBERS:" HorizontalAlignment="Left" Margin="5,15,0,0" Grid.Row="1" VerticalAlignment="Top" Height="75" Width="345" FontFamily="Times New Roman" FontSize="36"/>
@@ -179,13 +179,13 @@
             <Label x:Name="betCash" Content="" HorizontalAlignment="Left" Margin="220,50,0,0" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="85" RenderTransformOrigin="0.727,0.5" FontSize="20" FontFamily="Times New Roman"/>
             <Label x:Name="winLabel" Content="WINNING AMOUNT:" HorizontalAlignment="Left" Margin="305,0,0,0" Grid.Row="2" VerticalAlignment="Top" Height="31" Width="195" FontFamily="Times New Roman" FontSize="20"/>
             <Label x:Name="winningAmount" Content="" HorizontalAlignment="Left" Height="30" Margin="505,0,0,0" Grid.Row="2" VerticalAlignment="Top" Width="85" FontFamily="Times New Roman" FontSize="20"/>
-            <Button x:Name="clearBet" Content="CLEAR ALL BET" HorizontalAlignment="Left" Margin="315,45,0,0" Grid.Row="2" VerticalAlignment="Top" Width="140" Height="30" FontFamily="Times New Roman" FontSize="16" FontWeight="Bold" Click="ClearAllBet">
+            <Button x:Name="butonClear" Content="Clear All Bet" HorizontalAlignment="Left" Margin="320,55,0,0" Grid.Row="2" VerticalAlignment="Top" Width="165" FontFamily="Times New Roman" FontSize="18" Click="click_clearBet">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FFF3F3F3" Offset="0"/>
                         <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
                         <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-                        <GradientStop Color="#FFFF0404" Offset="1"/>
+                        <GradientStop Color="#FFFF0909" Offset="1"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
