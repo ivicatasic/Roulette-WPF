@@ -45,7 +45,6 @@ namespace Rulet
         private List<Label> numbersOnBoardlabels;
         private List<int> sums,sumsColor, sumsEven, sumsColumn, sumsHalf, sumsRows;
         private Dictionary<Label, int> mappedLabels;
-        private List<Image> chipImage;
         private VariablePaytable paytable;
         private int[] multiplicator;
 
