@@ -25,14 +25,7 @@ namespace Rulet
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const int numbers = 37;
-        private const int drawnNumbers = 4;
-        private const int columns = 3;
-        private const int rows = 3;
-        private const int colors = 2;
-        private const int evens = 2;
-        private const int halfs = 2;
-        private const int columnLimit = 18;
+        
         private Storyboard sb;
         private DispatcherTimer timer1;
         private DispatcherTimer timer2;
@@ -73,7 +66,7 @@ namespace Rulet
             sumsRows = new List<int>();
             drawnNumbersLabels = new List<Label>();
             mappedLabels = new Dictionary<Label, int>();
-            for (int i = 0; i<numbers;i++)
+            for (int i = 0; i<Constants.numbers;i++)
             {
                 var label = this.FindName("labelN" + i);
                 mappedLabels.Add((label as Label), i);
@@ -82,42 +75,42 @@ namespace Rulet
                 (label as Label).MouseLeftButtonDown += newClick;
             }
 
-            for (int i = 0; i<columns; i++)
+            for (int i = 0; i<Constants.columns; i++)
             {
                 var label = this.FindName("labelColumn" + i);
                 mappedLabels.Add((label as Label), i);
                 sumsColumn.Add(0);
                 (label as Label).MouseLeftButtonDown += clickColumn;
             }
-            for (int i = 0; i < halfs; i++)
+            for (int i = 0; i <Constants.halfs; i++)
             {
                 var label = this.FindName("labelHalf" + i);
                 mappedLabels.Add((label as Label), i);
                 sumsHalf.Add(0);
                 (label as Label).MouseLeftButtonDown += clickHalf;
             }
-            for (int i = 0; i < evens; i++)
+            for (int i = 0; i < Constants.evens; i++)
             {
                 var label = this.FindName("labelEven" + i);
                 mappedLabels.Add((label as Label), i);
                 sumsEven.Add(0);
                 (label as Label).MouseLeftButtonDown += clickEven;
             }
-            for (int i = 0; i < colors; i++)
+            for (int i = 0; i < Constants.colors; i++)
             {
                 var label = this.FindName("labelColor" + i);
                 mappedLabels.Add((label as Label), i);
                 sumsColor.Add(0);
                 (label as Label).MouseLeftButtonDown += clickColor;
             }
-            for (int i = 0; i < rows; i++)
+            for (int i = 0; i < Constants.rows; i++)
             {
                 var label = this.FindName("labelRow" + i);
                 mappedLabels.Add((label as Label), i);
                 sumsRows.Add(0);
                 (label as Label).MouseLeftButtonDown += clickRow;
             }
-            for (int i = 0; i < drawnNumbers; i++)
+            for (int i = 0; i < Constants.drawnNumbers; i++)
             {
                 var label = this.FindName("labelIN" + (i+1));
                 drawnNumbersLabels.Add((label as Label));
@@ -613,11 +606,11 @@ namespace Rulet
         {
             winAmount += sums[drawnNumber] * multiplicator[drawnNumber];
             // If drawn number is even than color should be black, and black is in position 1 in sumsColor
-            winAmount += (drawnNumber == 0) ? 0 : sumsColor[(drawnNumber % 2 == 0) ? 1 : 0] * colors;
-            winAmount += (drawnNumber == 0) ? 0 : sumsHalf[(drawnNumber <= columnLimit) ? 0 : 1] * halfs;
-            winAmount += (drawnNumber == 0) ? 0 : sumsColumn[(drawnNumber <= 12) ? 0 : (drawnNumber > 12 && drawnNumber <= 24) ? 1 : 2] * columns;
-            winAmount += (drawnNumber == 0) ? 0 : sumsEven[drawnNumber % 2] * evens;
-            winAmount += (drawnNumber == 0) ? 0 : sumsRows[(drawnNumber % 3 == 0) ? 0 : (drawnNumber % 3 == 2) ? 1 : 2] * rows;
+            winAmount += (drawnNumber == 0) ? 0 : sumsColor[(drawnNumber % 2 == 0) ? 1 : 0] * Constants.colors;
+            winAmount += (drawnNumber == 0) ? 0 : sumsHalf[(drawnNumber <= Constants.columnLimit) ? 0 : 1] * Constants.halfs;
+            winAmount += (drawnNumber == 0) ? 0 : sumsColumn[(drawnNumber <= 12) ? 0 : (drawnNumber > 12 && drawnNumber <= 24) ? 1 : 2] * Constants.columns;
+            winAmount += (drawnNumber == 0) ? 0 : sumsEven[drawnNumber % 2] * Constants.evens;
+            winAmount += (drawnNumber == 0) ? 0 : sumsRows[(drawnNumber % 3 == 0) ? 0 : (drawnNumber % 3 == 2) ? 1 : 2] * Constants.rows;
             winningAmount.Content = winAmount.ToString();
             totalAmount += winAmount;
             labelCash.Content = totalAmount.ToString();

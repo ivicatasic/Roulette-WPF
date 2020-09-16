@@ -45,6 +45,13 @@ namespace Rulet
         public const double num34 = 12.3;
         public const double num35 = 7.567;
         public const double num36 = 11.54;
-
+        public const int numbers = 37;
+        public const int drawnNumbers = 4;
+        public const int columns = 3;
+        public const int rows = 3;
+        public const int colors = 2;
+        public const int evens = 2;
+        public const int halfs = 2;
+        public const int columnLimit = 18;
     }
 }
