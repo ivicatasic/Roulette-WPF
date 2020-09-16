@@ -7,6 +7,8 @@
         Title="Roulette" 
         MinWidth="1024"
         MinHeight="768"
+        MaxHeight="1024"
+        MaxWidth="1400"
         Height="1024" 
         Width="1280" 
         WindowState="Maximized">
@@ -17,8 +19,8 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0" />
                 <EasingDoubleKeyFrame KeyTime="0:0:7" Value="360" />
             </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
 
+        </Storyboard>
 
     </Window.Resources>
 
@@ -31,15 +33,15 @@
 
 
 
-    <Grid x:Name="mainGrid" Background="#FF23712E" >
+    <Grid x:Name="mainGrid" Background="#FF23712E" Width="Auto" >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="53*"></ColumnDefinition>
-            <ColumnDefinition Width="32*"></ColumnDefinition>
-            <ColumnDefinition Width="21*"/>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"/>
 
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0">
+        <Grid Grid.Column="0" Width="Auto" Height="Auto">
             <Grid.RowDefinitions>
                 <RowDefinition Height="705*"></RowDefinition>
                 <RowDefinition Height="289*"></RowDefinition>
@@ -81,7 +83,7 @@
                      HorizontalAlignment="Center"
                      VerticalAlignment="Top"
                      Height="18" 
-                     Width="18" Margin="277,52,341,0">
+                     Width="18" Margin="282,57,847,0">
 
             </Ellipse>
             <Label x:Name="labelNumber" Content="DRAWN NUMBERS:" HorizontalAlignment="Left" Margin="5,15,0,0" Grid.Row="1" VerticalAlignment="Top" Height="75" Width="345" FontFamily="Times New Roman" FontSize="36"/>
@@ -99,7 +101,7 @@
 
         </Grid>
 
-        <Grid Grid.ColumnSpan="3" Margin="635,11,1,-11">
+        <Grid Grid.ColumnSpan="3" Margin="635,11,1,-11" Width="Auto">
             <Grid.RowDefinitions>
                 <RowDefinition Height="148*"></RowDefinition>
                 <RowDefinition Height="254*"></RowDefinition>
@@ -117,9 +119,10 @@
             <Canvas x:Name="c3" HorizontalAlignment="Left" Height="100" Margin="259,40,0,0" VerticalAlignment="Top" Width="95"/>
             <Canvas x:Name="c4" HorizontalAlignment="Left" Height="100" Margin="370,39,0,0" VerticalAlignment="Top" Width="115"/>
 
-            <Image x:Name="board" Source="Resources\board.png" Margin="5,224,0,50" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="625" Grid.RowSpan="2"  />
-            <Label x:Name="label0" Content="&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="30,78,0,0" Grid.Row="1" VerticalAlignment="Top" Height="135" Width="50" MouseLeftButtonUp="Label0_MouseLeftButtonUp" FontSize="20" RenderTransformOrigin="0.9,0.704" FontWeight="Bold"/>
-            <Label x:Name="label1to18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="" HorizontalAlignment="Left" Margin="90,278,0,0" Grid.Row="1" VerticalAlignment="Top" Width="65" Height="35" FontSize="20" MouseLeftButtonUp="Label1to18_MouseLeftButtonUp" RenderTransformOrigin="0.463,0.395" FontFamily="Times New Roman" FontWeight="Bold">
+            <Image x:Name="board" Source="Resources\board.png" Margin="5,224,0,50" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="625" Grid.RowSpan="2"  />
+
+            <Label x:Name="labelN0" Content="&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="30,78,0,0" Grid.Row="1" VerticalAlignment="Top" Height="135" Width="50"  FontSize="20" RenderTransformOrigin="0.9,0.704" FontWeight="Bold"/>
+            <Label x:Name="labelHalf0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="" HorizontalAlignment="Left" Margin="90,281,0,0" Grid.Row="1" VerticalAlignment="Top" Width="65" Height="35" FontSize="20" RenderTransformOrigin="0.463,0.395" FontFamily="Times New Roman" FontWeight="Bold">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -129,51 +132,50 @@
                     </TransformGroup>
                 </Label.RenderTransform>
             </Label>
-            <Label x:Name="labelEven" Content="" HorizontalAlignment="Left" Margin="170,265,0,0" Grid.Row="1" VerticalAlignment="Top" Width="70" MouseLeftButtonUp="LabelEven_MouseLeftButtonUp" FontSize="20" FontFamily="Times New Roman" RenderTransformOrigin="0.5,0.242" FontWeight="Bold"/>
-            <Label x:Name="labelRed" Content="" HorizontalAlignment="Left" Margin="250,263,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.467,0.429" Height="35" Width="75" FontFamily="Times New Roman" FontSize="20" MouseLeftButtonUp="LabelRed_MouseLeftButtonUp" FontWeight="Bold"/>
-            <Label x:Name="labelBlack" Content="" HorizontalAlignment="Left" Margin="330,263,0,0" Grid.Row="1" VerticalAlignment="Top" Height="35" Width="70" FontFamily="Times New Roman" FontSize="20" MouseLeftButtonUp="LabelBlack_MouseLeftButtonUp" FontWeight="Bold"/>
-            <Label x:Name="labelOdd" Content="" HorizontalAlignment="Left" Margin="415,268,0,0" Grid.Row="1" VerticalAlignment="Top" Height="35" Width="68" FontFamily="Times New Roman" FontSize="20" MouseLeftButtonUp="LabelOdd_MouseLeftButtonUp" FontWeight="Bold"/>
-            <Label x:Name="label19to36" Content="" HorizontalAlignment="Left" Margin="500,263,0,0" Grid.Row="1" VerticalAlignment="Top" Height="35" Width="75" FontFamily="Times New Roman" FontSize="20" MouseLeftButtonUp="Label19to36_MouseLeftButtonUp" FontWeight="Bold"/>
-            <Label x:Name="label1st12" Content="" HorizontalAlignment="Left" Height="40" Margin="90,208,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" FontFamily="Times New Roman" FontSize="20" MouseLeftButtonUp="Label1st12_MouseLeftButtonUp" FontWeight="Bold"/>
-            <Label x:Name="label2nd12" Content="" HorizontalAlignment="Left" Height="40" Margin="255,208,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" FontFamily="Times New Roman" FontSize="20" MouseLeftButtonUp="Label2nd12_MouseLeftButtonUp" FontWeight="Bold"/>
-            <Label x:Name="label3rd12" Content="" HorizontalAlignment="Left" Height="40" Margin="415,208,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" FontFamily="Times New Roman" FontSize="20" MouseLeftButtonUp="Label3rd12_MouseLeftButtonUp" FontWeight="Bold"/>
-            <Label x:Name="label2to1" Content="" HorizontalAlignment="Left" Height="120" Margin="575,88,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45" FontFamily="Times New Roman" FontSize="20" MouseLeftButtonUp="Label2to1_MouseLeftButtonUp" FontWeight="Bold"/>
-            <Label x:Name="labelN1" Content="" HorizontalAlignment="Left" Height="40" Margin="85,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" MouseLeftButtonUp="LabelN1_MouseLeftButtonUp" FontWeight="Bold" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN4" Content="" HorizontalAlignment="Left" Height="40" Margin="125,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" MouseLeftButtonUp="LabelN4_MouseLeftButtonUp" FontWeight="Bold" Foreground="Red"/>
-            <Label x:Name="labelN7" Content="" HorizontalAlignment="Left" Height="40" Margin="165,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" MouseLeftButtonUp="LabelN7_MouseLeftButtonUp" FontWeight="Bold" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN10" Content="" HorizontalAlignment="Left" Height="40" Margin="205,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" MouseLeftButtonUp="LabelN10_MouseLeftButtonUp" FontWeight="Bold" Foreground="Red"/>
-            <Label x:Name="labelN13" Content="" HorizontalAlignment="Left" Height="40" Margin="245,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN13_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN16" Content="" HorizontalAlignment="Left" Height="40" Margin="290,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontWeight="Bold" FontSize="20" MouseLeftButtonUp="LabelN16_MouseLeftButtonUp_1" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN19" Content="" HorizontalAlignment="Left" Height="40" Margin="330,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontWeight="Bold" FontFamily="Times New Roman" FontSize="20" MouseLeftButtonUp="LabelN19_MouseLeftButtonUp" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN22" Content="" HorizontalAlignment="Left" Height="40" Margin="370,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontWeight="Bold" FontSize="20" MouseLeftButtonUp="LabelN22_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN25" Content="" HorizontalAlignment="Left" Height="40" Margin="410,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN25_MouseLeftButtonUp" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN28" Content="" HorizontalAlignment="Left" Height="40" Margin="450,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN28_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN31" Content="" HorizontalAlignment="Left" Height="40" Margin="490,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN31_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN34" Content="" HorizontalAlignment="Left" Height="40" Margin="530,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN34_MouseLeftButtonUp" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN2" Content="" HorizontalAlignment="Left" Height="45" Margin="85,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN2_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN5" Content="" HorizontalAlignment="Left" Height="45" Margin="125,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" MouseLeftButtonUp="LabelN5_MouseLeftButtonUp" FontWeight="Bold" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN8" Content="" HorizontalAlignment="Left" Height="45" Margin="165,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN8_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN11" Content="" HorizontalAlignment="Left" Height="45" Margin="205,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN11_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN14" Content="" HorizontalAlignment="Left" Height="45" Margin="245,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN14_MouseLeftButtonUp" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN17" Content="" HorizontalAlignment="Left" Height="45" Margin="285,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN17_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN20" Content="" HorizontalAlignment="Left" Height="45" Margin="325,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN20_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN23" Content="" HorizontalAlignment="Left" Height="45" Margin="370,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN23_MouseLeftButtonUp" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN26" Content="" HorizontalAlignment="Left" Height="45" Margin="410,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN26_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN29" Content="" HorizontalAlignment="Left" Height="45" Margin="450,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN29_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN32" Content="" HorizontalAlignment="Left" Height="45" Margin="490,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN32_MouseLeftButtonUp" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN35" Content="" HorizontalAlignment="Left" Height="45" Margin="530,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN35_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN3" Content="" HorizontalAlignment="Left" Height="45" Margin="85,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" MouseLeftButtonUp="LabelN3_MouseLeftButtonUp" FontWeight="Bold" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN6" Content="" HorizontalAlignment="Left" Height="45" Margin="125,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN6_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN9" Content="" HorizontalAlignment="Left" Height="45" Margin="165,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN9_MouseLeftButtonUp" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN12" Content="" HorizontalAlignment="Left" Height="45" Margin="205,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN12_MouseLeftButtonUp" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN15" Content="" HorizontalAlignment="Left" Height="45" Margin="245,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN15_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN18" Content="" HorizontalAlignment="Left" Height="45" Margin="290,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN18_MouseLeftButtonUp" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN21" Content="" HorizontalAlignment="Left" Height="45" Margin="330,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN21_MouseLeftButtonUp" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN24" Content="" HorizontalAlignment="Left" Height="45" Margin="370,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN24_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN27" Content="" HorizontalAlignment="Left" Height="45" Margin="410,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN27_MouseLeftButtonUp" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN30" Content="" HorizontalAlignment="Left" Height="45" Margin="450,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN30_MouseLeftButtonUp" Foreground="#FF1A1AEE"/>
-            <Label x:Name="labelN33" Content="" HorizontalAlignment="Left" Height="45" Margin="490,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN33_MouseLeftButtonUp" Foreground="Red"/>
-            <Label x:Name="labelN36" Content="" HorizontalAlignment="Left" Height="45" Margin="535,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" MouseLeftButtonUp="LabelN36_MouseLeftButtonUp" Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelEven0" Content="" HorizontalAlignment="Left" Margin="170,265,0,0" Grid.Row="1" VerticalAlignment="Top" Width="70"  FontSize="20" FontFamily="Times New Roman" RenderTransformOrigin="0.5,0.242" FontWeight="Bold"/>
+            <Label x:Name="labelColor0" Content="" HorizontalAlignment="Left" Margin="250,263,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.467,0.429" Height="35" Width="75" FontFamily="Times New Roman" FontSize="20"  FontWeight="Bold"/>
+            <Label x:Name="labelColor1" Content="" HorizontalAlignment="Left" Margin="330,263,0,0" Grid.Row="1" VerticalAlignment="Top" Height="35" Width="70" FontFamily="Times New Roman" FontSize="20"  FontWeight="Bold"/>
+            <Label x:Name="labelEven1" Content="" HorizontalAlignment="Left" Margin="415,268,0,0" Grid.Row="1" VerticalAlignment="Top" Height="35" Width="68" FontFamily="Times New Roman" FontSize="20"  FontWeight="Bold"/>
+            <Label x:Name="labelHalf1" Content="" HorizontalAlignment="Left" Margin="501,263,0,0" Grid.Row="1" VerticalAlignment="Top" Height="35" Width="75" FontFamily="Times New Roman" FontSize="20"  FontWeight="Bold"/>
+            <Label x:Name="labelColumn0" Content="" HorizontalAlignment="Left" Height="40" Margin="90,208,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" FontFamily="Times New Roman" FontSize="20"  FontWeight="Bold"/>
+            <Label x:Name="labelColumn1" Content="" HorizontalAlignment="Left" Height="40" Margin="255,208,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" FontFamily="Times New Roman" FontSize="20"  FontWeight="Bold"/>
+            <Label x:Name="labelColumn2" Content="" HorizontalAlignment="Left" Height="40" Margin="415,208,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" FontFamily="Times New Roman" FontSize="20"  FontWeight="Bold"/>
+            <Label x:Name="labelN1" Content="" HorizontalAlignment="Left" Height="40" Margin="85,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20"  FontWeight="Bold" Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN4" Content="" HorizontalAlignment="Left" Height="40" Margin="125,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20"  FontWeight="Bold" Foreground="Red"/>
+            <Label x:Name="labelN7" Content="" HorizontalAlignment="Left" Height="40" Margin="165,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20"  FontWeight="Bold" Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN10" Content="" HorizontalAlignment="Left" Height="40" Margin="205,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20"  FontWeight="Bold" Foreground="Red"/>
+            <Label x:Name="labelN13" Content="" HorizontalAlignment="Left" Height="40" Margin="245,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="Red"/>
+            <Label x:Name="labelN16" Content="" HorizontalAlignment="Left" Height="40" Margin="290,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontWeight="Bold" FontSize="20"  Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN19" Content="" HorizontalAlignment="Left" Height="40" Margin="330,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontWeight="Bold" FontFamily="Times New Roman" FontSize="20"  Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN22" Content="" HorizontalAlignment="Left" Height="40" Margin="370,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontWeight="Bold" FontSize="20"  Foreground="Red"/>
+            <Label x:Name="labelN25" Content="" HorizontalAlignment="Left" Height="40" Margin="410,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN28" Content="" HorizontalAlignment="Left" Height="40" Margin="450,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="Red"/>
+            <Label x:Name="labelN31" Content="" HorizontalAlignment="Left" Height="40" Margin="490,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="Red"/>
+            <Label x:Name="labelN34" Content="" HorizontalAlignment="Left" Height="40" Margin="530,153,0,0" Grid.Row="1" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN2" Content="" HorizontalAlignment="Left" Height="45" Margin="85,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="Red"/>
+            <Label x:Name="labelN5" Content="" HorizontalAlignment="Left" Height="45" Margin="125,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN8" Content="" HorizontalAlignment="Left" Height="45" Margin="165,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="Red"/>
+            <Label x:Name="labelN11" Content="" HorizontalAlignment="Left" Height="45" Margin="205,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="Red"/>
+            <Label x:Name="labelN14" Content="" HorizontalAlignment="Left" Height="45" Margin="245,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN17" Content="" HorizontalAlignment="Left" Height="45" Margin="285,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" Foreground="Red"/>
+            <Label x:Name="labelN20" Content="" HorizontalAlignment="Left" Height="45" Margin="325,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" Foreground="Red"/>
+            <Label x:Name="labelN23" Content="" HorizontalAlignment="Left" Height="45" Margin="370,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN26" Content="" HorizontalAlignment="Left" Height="45" Margin="410,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="Red"/>
+            <Label x:Name="labelN29" Content="" HorizontalAlignment="Left" Height="45" Margin="450,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="Red"/>
+            <Label x:Name="labelN32" Content="" HorizontalAlignment="Left" Height="45" Margin="490,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN35" Content="" HorizontalAlignment="Left" Height="45" Margin="530,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="Red"/>
+            <Label x:Name="labelN3" Content="" HorizontalAlignment="Left" Height="45" Margin="85,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20"  FontWeight="Bold" Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN6" Content="" HorizontalAlignment="Left" Height="45" Margin="125,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="Red"/>
+            <Label x:Name="labelN9" Content="" HorizontalAlignment="Left" Height="45" Margin="165,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN12" Content="" HorizontalAlignment="Left" Height="45" Margin="205,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN15" Content="" HorizontalAlignment="Left" Height="45" Margin="245,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" Foreground="Red"/>
+            <Label x:Name="labelN18" Content="" HorizontalAlignment="Left" Height="45" Margin="290,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN21" Content="" HorizontalAlignment="Left" Height="45" Margin="330,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN24" Content="" HorizontalAlignment="Left" Height="45" Margin="370,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="Red"/>
+            <Label x:Name="labelN27" Content="" HorizontalAlignment="Left" Height="45" Margin="410,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN30" Content="" HorizontalAlignment="Left" Height="45" Margin="450,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="#FF1A1AEE"/>
+            <Label x:Name="labelN33" Content="" HorizontalAlignment="Left" Height="45" Margin="490,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="Red"/>
+            <Label x:Name="labelN36" Content="" HorizontalAlignment="Left" Height="45" Margin="535,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"  Foreground="#FF1A1AEE"/>
             <Label x:Name="labelTotalAmount" Content="TOTAL AMOUNT:" HorizontalAlignment="Left" Margin="15,0,0,0" Grid.Row="2" VerticalAlignment="Top" Height="40" Width="200" FontFamily="Times New Roman" FontSize="20"/>
             <Label x:Name="labelCash" Content="" HorizontalAlignment="Left" Margin="220,0,0,0" Grid.Row="2" VerticalAlignment="Top" Height="40" Width="90" FontSize="20" FontFamily="Times New Roman"/>
             <Label x:Name="labelBet" Content="BET AMOUNT:" HorizontalAlignment="Left" Margin="15,50,0,0" Grid.Row="2" VerticalAlignment="Top" FontSize="20" FontFamily="Times New Roman"/>
@@ -190,6 +192,9 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
+            <Label x:Name="labelRow0" Content="" HorizontalAlignment="Left" Margin="580,43,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50" Height="45" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" Foreground="Red" FontStretch="Expanded" RenderTransformOrigin="0.4,0.333"/>
+            <Label x:Name="labelRow1" Content="&#xD;&#xA;" HorizontalAlignment="Left" Height="40" Margin="580,98,0,0" Grid.Row="1" VerticalAlignment="Top" Width="55" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" Foreground="Red" FontStretch="Expanded"/>
+            <Label x:Name="labelRow2" Content="&#xD;&#xA;" HorizontalAlignment="Left" Height="45" Margin="580,148,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" Foreground="Red" FontStretch="Expanded"/>
 
 
 
