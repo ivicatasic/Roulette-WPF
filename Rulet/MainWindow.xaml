@@ -7,10 +7,10 @@
         Title="Roulette" 
         MinWidth="1024"
         MinHeight="768"
-        MaxHeight="1024"
-        MaxWidth="1400"
         Height="1024" 
         Width="1280" 
+        MaxWidth="1380"
+        MaxHeight="1024"
         WindowState="Maximized">
     <Window.Resources>
         <Storyboard x:Key="Storyboard1">
@@ -46,8 +46,8 @@
                 <RowDefinition Height="705*"></RowDefinition>
                 <RowDefinition Height="289*"></RowDefinition>
             </Grid.RowDefinitions>
-
-            <Ellipse Name="wheel" Stroke="Black" RenderTransformOrigin="0.795,0.706" Margin="-28,-25,-104,11" HorizontalAlignment="Left" Width="768" >
+            <Grid x:Name="gridWheel" Margin="0,0,604,5">
+                <Ellipse Name="wheel" Stroke="Black" RenderTransformOrigin="0.795,0.706" Margin="-28,-25,-104,11" HorizontalAlignment="Left" Width="768" >
                 <Ellipse.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="0.85" ScaleX="0.795"/>
@@ -75,15 +75,15 @@
                     <BitmapEffectInput />
                 </Ellipse.BitmapEffectInput>
             </Ellipse>
-
+            </Grid>
 
             <Ellipse x:Name="ball" 
                      Fill="Silver" 
                      RenderTransformOrigin="0.667,0.074" 
                      HorizontalAlignment="Center"
                      VerticalAlignment="Top"
-                     Height="18" 
-                     Width="18" Margin="282,57,847,0">
+                     Height="16" 
+                     Width="16" Margin="297,55,936,0">
 
             </Ellipse>
             <Label x:Name="labelNumber" Content="DRAWN NUMBERS:" HorizontalAlignment="Left" Margin="5,15,0,0" Grid.Row="1" VerticalAlignment="Top" Height="75" Width="345" FontFamily="Times New Roman" FontSize="36"/>
@@ -118,9 +118,9 @@
             </Canvas>
             <Canvas x:Name="c3" HorizontalAlignment="Left" Height="100" Margin="259,40,0,0" VerticalAlignment="Top" Width="95"/>
             <Canvas x:Name="c4" HorizontalAlignment="Left" Height="100" Margin="370,39,0,0" VerticalAlignment="Top" Width="115"/>
-
-            <Image x:Name="board" Source="Resources\board.png" Margin="5,224,0,50" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="625" Grid.RowSpan="2"  />
-
+            
+                <Image x:Name="board" Source="Resources\board.png" Margin="5,224,0,50" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="625" Grid.RowSpan="2"  />
+            
             <Label x:Name="labelN0" Content="&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="30,78,0,0" Grid.Row="1" VerticalAlignment="Top" Height="135" Width="50"  FontSize="20" RenderTransformOrigin="0.9,0.704" FontWeight="Bold"/>
             <Label x:Name="labelHalf0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="" HorizontalAlignment="Left" Margin="90,281,0,0" Grid.Row="1" VerticalAlignment="Top" Width="65" Height="35" FontSize="20" RenderTransformOrigin="0.463,0.395" FontFamily="Times New Roman" FontWeight="Bold">
                 <Label.RenderTransform>
@@ -181,8 +181,8 @@
             <Label x:Name="labelBet" Content="BET AMOUNT:" HorizontalAlignment="Left" Margin="15,50,0,0" Grid.Row="2" VerticalAlignment="Top" FontSize="20" FontFamily="Times New Roman"/>
             <Label x:Name="betCash" Content="" HorizontalAlignment="Left" Margin="220,50,0,0" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="85" RenderTransformOrigin="0.727,0.5" FontSize="20" FontFamily="Times New Roman"/>
             <Label x:Name="winLabel" Content="WINNING AMOUNT:" HorizontalAlignment="Left" Margin="305,0,0,0" Grid.Row="2" VerticalAlignment="Top" Height="31" Width="195" FontFamily="Times New Roman" FontSize="20"/>
-            <Label x:Name="winningAmount" Content="" HorizontalAlignment="Left" Height="30" Margin="505,0,0,0" Grid.Row="2" VerticalAlignment="Top" Width="85" FontFamily="Times New Roman" FontSize="20"/>
-            <Button x:Name="butonClear" Content="Clear All Bet" HorizontalAlignment="Left" Margin="320,55,0,0" Grid.Row="2" VerticalAlignment="Top" Width="165" FontFamily="Times New Roman" FontSize="18" Click="click_clearBet">
+                <Label x:Name="winningAmount" Content="" HorizontalAlignment="Left" Height="30" Margin="505,0,0,0" Grid.Row="2" VerticalAlignment="Top" Width="85" FontFamily="Times New Roman" FontSize="20"/>
+                <Button x:Name="butonClear" Content="Clear All Bet" HorizontalAlignment="Left" Margin="320,55,0,0" Grid.Row="2" VerticalAlignment="Top" Width="165" FontFamily="Times New Roman" FontSize="18" Click="click_clearBet">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FFF3F3F3" Offset="0"/>
